@@ -1,0 +1,33 @@
+# Universal Paperclips
+
+Clean-room reimplementation built from the specification in `docs/spec/` and the
+product requirements in `docs/product/requirements.md`.
+
+Status: milestone 1 scaffold. The core modules exist as typed stubs; no gameplay
+is implemented yet.
+
+## Requirements
+
+- Bun 1.4 or newer
+
+## Install
+
+```sh
+bun install
+```
+
+## Check
+
+Runs lint, type checks and tests:
+
+```sh
+bun run check
+```
+
+## Command-line harness
+
+```sh
+bun run cli
+```
+
+The harness is not implemented yet.
