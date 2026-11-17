@@ -3,8 +3,9 @@
 Clean-room reimplementation built from the specification in `docs/spec/` and the
 product requirements in `docs/product/requirements.md`.
 
-Status: milestone 1 scaffold. The core modules exist as typed stubs; no gameplay
-is implemented yet.
+Status: milestone 1 (core) in progress. The spec 01 §1 formatters are
+implemented and tested; the remaining core modules are typed stubs and the
+command-line harness is not implemented.
 
 ## Requirements
 
