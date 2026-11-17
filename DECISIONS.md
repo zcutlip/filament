@@ -15,11 +15,11 @@
   TDD scaffolds a batch's modules first, so 03–07 state is added when its tests are planned.
 - 2026-11-17 — Core `tsconfig` has no DOM lib.
   Type-checking rejects browser globals in the core, enforcing ARCH-1; the UI milestone gets its own config.
-- 2026-11-17 — The check script adds `--pass-with-no-tests` during the scaffold gate only.
-  Bun exits 1 on an empty suite; the flag is removed when the first locked tests land in RED.
 - 2026-11-17 — RNG saves as `{ algorithm, state }`; the concrete PRNG is chosen in its RED/GREEN batch.
   The algorithm name keeps save compatibility checkable (ARCH-3, ARCH-7).
+- 2026-11-17 — Formatters use `Intl.NumberFormat("en-US")` (spec 01 §1.1–1.2, 01-D11).
+  Default half-expand rounding matches "half away from zero", and output never follows the host locale; a tiny negative that rounds to zero prints `0`, not `-0`.
 
 UI framework, server framework, and container base are deferred until the milestone that needs them.
 
-_Source: stack planning discussion and milestone 1 scaffold request, 2026-11-17._
+_Source: stack planning discussion and milestone 1 scaffold request, 2026-11-17; batch 01 §1 formatter tests and implementation, 2026-11-17._
