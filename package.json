@@ -3,9 +3,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "check": "tsc --noEmit && biome check . && bun test --pass-with-no-tests",
+    "check": "tsc --noEmit && biome check . && bun test",
     "cli": "bun run src/cli/main.ts",
-    "test": "bun test --pass-with-no-tests"
+    "test": "bun test"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.6.8",
