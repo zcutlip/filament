@@ -1,0 +1,7 @@
+{
+  "enabled": true,
+  "mode": "advisory",
+  "workflow": "tdd-scaffold-red-green-refactor",
+  "version": 1,
+  "contract": "AGENTS.md"
+}
