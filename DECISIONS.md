@@ -12,7 +12,7 @@
 - 2026-11-17 — Core module boundaries: `src/core/{state,game,rng,commands,step,view,save,format}.ts`.
   One entry point per ARCH-1–7 concern, with `src/core/index.ts` as the package-facing surface.
 - 2026-11-17 — `GameState` starts with the 01 §2 inventory and grows with each section batch.
-  TDD scaffolds a batch's modules first, so 03–07 state is added when its tests are planned.
+  TDD scaffolds a batch's modules first, so 03–07 fields not listed in that inventory are added when their tests are planned.
 - 2026-11-17 — Core `tsconfig` has no DOM lib.
   Type-checking rejects browser globals in the core, enforcing ARCH-1; the UI milestone gets its own config.
 - 2026-11-17 — RNG saves as `{ algorithm, state }`; the concrete PRNG is chosen in its RED/GREEN batch.
@@ -20,7 +20,7 @@
 - 2026-11-17 — Formatters use `Intl.NumberFormat("en-US")` (spec 01 §1.1–1.2, 01-D11).
   Default half-expand rounding matches "half away from zero", and output never follows the host locale; a tiny negative that rounds to zero prints `0`, not `-0`.
 - 2026-11-17 — Initial state lives in `src/core/state.ts` as `createInitialState()` (spec 01 §2).
-  The factory sits beside the type it builds, returns fresh arrays per game, and leaves 03–07 fields for their batches; the four unspecified revenue trackers start at 0 (`GAPS.md` G-001).
+  The factory sits beside the type it builds, returns fresh arrays per game, and leaves 03–07 fields not listed in the 01 §2 inventory for their batches; the four unspecified revenue trackers start at 0 (`GAPS.md` G-001).
 
 UI framework, server framework, and container base are deferred until the milestone that needs them.
 
