@@ -1,3 +1,5 @@
+import { notImplemented } from "./internal/not-implemented";
+
 /**
  * Game state boundary (ARCH-1).
  *
@@ -161,4 +163,12 @@ export interface GameState {
   maxFactoryLevel: number;
   maxDroneLevel: number;
   stockReportCounter: number;
+}
+
+/**
+ * Fresh state for a new game (spec 01 §2.1–2.2, 01-D5).
+ * Returns a new object with its own arrays; no state is shared between games.
+ */
+export function createInitialState(): GameState {
+  return notImplemented("createInitialState");
 }

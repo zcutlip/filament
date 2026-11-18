@@ -8,6 +8,7 @@ export { createRng, restoreRng } from "./rng";
 export type { LoadedSave, Provenance, SaveMetadata } from "./save";
 export { deserializeSave, serializeSave } from "./save";
 export type { GameState } from "./state";
+export { createInitialState } from "./state";
 export { step } from "./step";
 export type { ViewModel } from "./view";
 export { getViewModel } from "./view";
