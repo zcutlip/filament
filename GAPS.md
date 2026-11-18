@@ -3,7 +3,7 @@
 Spec gaps, contradictions and undecided details met while implementing. Each
 entry follows `AGENTS.md` §4.
 
-## G-001 — Initial values for the revenue-tracker module variables
+## G-001 — Revenue-tracker initial and load values
 
 - **Spec:** 01 §2.2 (`incomeThen` marked "see D5"; `incomeLastSecond`,
   `trueAvgRev`, `avgSales` marked "—"); 01-D5; 01 §6.3; 08 §4.1, §4.3, 08-P10.
@@ -19,18 +19,20 @@ entry follows `AGENTS.md` §4.
   values are what reach the readouts. At a fresh start `income` and `incomeNow`
   are both `0`. The choice is unobservable on the specified tick path, not
   because the values are never displayed.
-- **Open (load path):** two readings of the rules produce different output.
-  - Persist the six scalars per 08-P10 and still apply 01-D5 ("persisting is
-    recommended"): the saved averages are shown until the first
-    `calculateRev()`, then the first sample is 0.
-  - Keep the six scalars transient and re-initialize on load per 01-D5: the
-    restored `incomeTracker` is averaged with a 0 first sample, so the saved
-    averages are lost for up to 10 s.
-  - Both readings fix the original `NaN`; they differ in whether the two
-    revenue readouts resume the saved averages or restart from the restored
-    tracker.
-- **Recommendation:** keep `0` for fresh state. For the load path, persist the
-  six scalars per 08-P10 and still set `incomeNow = income` on load per 01-D5;
-  that satisfies both texts and preserves the readouts. Decide it in the 08
-  batch.
-- **Status:** fresh state resolved; load path decided at 08.
+- **Open (load path):** both readings keep the saved `incomeTracker` (it is in
+  the 08 §4.1 save set) and record the first second's revenue as the first new
+  sample, because 01 §3.2 runs sales before `calculateRev()` and `secTimer`
+  restarts at 0. They differ only in the readouts during that first second.
+  - Persist `income` and the five tracker scalars per 08-P10, and still apply
+    01-D5 (`incomeNow = income` on load): `avgSales` shows the saved value for
+    the first second. Cost: six new fields in the 231-field save set.
+  - Keep those six transient and apply 01-D5: `avgSales` starts at 0 for the
+    first second; the restored `incomeTracker` and `avgRev` stay. Cost: the
+    saved `avgSales` is discarded.
+  - After the first `calculateRev()` (~1 s) both compute from the same restored
+    tracker, so their readouts converge; its samples then age out one per
+    second.
+- **Recommendation:** keep `0` for fresh state. The load path needs a ruling:
+  persisting adds six fields to 08 §4.1, which 08 §4.3 currently lists as not
+  persisted, while 08-P10 recommends persisting. Decide before the 08 batch.
+- **Status:** fresh state resolved; load path open, awaiting the save-set ruling.
