@@ -1,6 +1,6 @@
 {
   "enabled": true,
-  "mode": "advisory",
+  "mode": "steer",
   "workflow": "tdd-scaffold-red-green-refactor",
   "version": 1,
   "contract": "AGENTS.md"
