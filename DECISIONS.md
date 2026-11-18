@@ -19,7 +19,9 @@
   The algorithm name keeps save compatibility checkable (ARCH-3, ARCH-7).
 - 2026-11-17 — Formatters use `Intl.NumberFormat("en-US")` (spec 01 §1.1–1.2, 01-D11).
   Default half-expand rounding matches "half away from zero", and output never follows the host locale; a tiny negative that rounds to zero prints `0`, not `-0`.
+- 2026-11-17 — Initial state lives in `src/core/state.ts` as `createInitialState()` (spec 01 §2).
+  The factory sits beside the type it builds, returns fresh arrays per game, and leaves 03–07 fields for their batches; the four unspecified revenue trackers start at 0 (`GAPS.md` G-001).
 
 UI framework, server framework, and container base are deferred until the milestone that needs them.
 
-_Source: stack planning discussion and milestone 1 scaffold request, 2026-11-17; batch 01 §1 formatter tests and implementation, 2026-11-17._
+_Source: stack planning discussion and milestone 1 scaffold request, 2026-11-17; batch 01 §1 formatter tests and implementation, 2026-11-17; batch 01 §2 state tests and implementation, 2026-11-17._
