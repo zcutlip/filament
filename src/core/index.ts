@@ -10,5 +10,13 @@ export { deserializeSave, serializeSave } from "./save";
 export type { GameState } from "./state";
 export { createInitialState } from "./state";
 export { step } from "./step";
+export type { UpgradeThresholds } from "./systems/manufacturing";
+export {
+  clipClick,
+  getUpgradeThresholds,
+  makeClipper,
+  makeMegaClipper,
+  updateClipRate,
+} from "./systems/manufacturing";
 export type { ViewModel } from "./view";
 export { getViewModel } from "./view";
