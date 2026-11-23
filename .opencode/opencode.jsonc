@@ -1,0 +1,38 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+
+  // Default model for this project, in provider/model form.
+  // "model": "provider/model",
+  // Primary agent when a session does not select one.
+  // "default_agent": "build",
+
+  // Specialized agents for this project.
+  "agents": {
+    "build": {
+      "permissions": [
+        // Gate and test runs belong to the test subagent (ruling 2026-11-22).
+        // The builder may not run them itself; bare literal + trailing
+        // wildcard per the global deny convention. The test subagent, the
+        // user, and other agents are untouched.
+        { "action": "shell", "resource": "bun run check", "effect": "deny" },
+        { "action": "shell", "resource": "bun run check *", "effect": "deny" },
+        { "action": "shell", "resource": "bun test", "effect": "deny" },
+        { "action": "shell", "resource": "bun test *", "effect": "deny" }
+      ]
+    }
+  },
+  // Named slash commands (prompt templates) for this project.
+  "commands": {},
+  // Ordered allow/deny/ask rules; the last matching rule wins.
+  "permissions": [],
+  // Plugins loaded for this project.
+  "plugins": [],
+  // Provider and model overrides.
+  "providers": {},
+  // Named local directories or Git repositories for supporting context.
+  "references": {},
+  // MCP servers available in this project.
+  "mcp": {
+    "servers": {},
+  },
+}
