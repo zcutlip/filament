@@ -11,8 +11,8 @@
 
 - 2026-11-17 — Core module boundaries: `src/core/{state,game,rng,commands,step,view,save,format}.ts`, plus `src/core/systems/` for one module per spec section system.
   One entry point per ARCH-1–7 concern, with `src/core/index.ts` as the package-facing surface; section rules live in `systems/`, not in the state or entry-point modules.
-- 2026-11-22 — `src/core/systems/manufacturing.ts` owns spec 01 §4 as `clipClick`, `makeClipper`, `makeMegaClipper`, `updateClipRate`, `getUpgradeThresholds`.
-  The last two are named for their spec duties because 01 §4.4/§4.5 name no function; their state stays in `GameState`.
+- 2026-11-22 — `src/core/systems/manufacturing.ts` owns spec 01 §4 as `clipClick`, `makeClipper`, `makeMegaClipper`, `updateClipRate`, `updateUpgrades`.
+  `updateUpgrades` is 01 §4.5's named function; it returns the threshold pair instead of writing display state, because 01 §2 lists no `nfup`/`ndup` fields and the core has no display. `updateClipRate` names 01 §4.4's tick step, which the spec leaves unnamed.
 - 2026-11-17 — `GameState` starts with the 01 §2 inventory and grows with each section batch.
   TDD scaffolds a batch's modules first, so 03–07 fields not listed in that inventory are added when their tests are planned.
 - 2026-11-17 — Core `tsconfig` has no DOM lib.
