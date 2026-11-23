@@ -18,7 +18,7 @@ export function clipClick(state: GameState, number: number): void {
   }
 
   if (state.wire >= 1) {
-    const amount = number > state.wire ? state.wire : number;
+    const amount = Math.min(number, state.wire);
     state.clips += amount;
     state.unsoldClips += amount;
     state.wire -= amount;
