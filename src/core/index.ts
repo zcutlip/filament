@@ -13,10 +13,10 @@ export { step } from "./step";
 export type { UpgradeThresholds } from "./systems/manufacturing";
 export {
   clipClick,
-  getUpgradeThresholds,
   makeClipper,
   makeMegaClipper,
   updateClipRate,
+  updateUpgrades,
 } from "./systems/manufacturing";
 export type { ViewModel } from "./view";
 export { getViewModel } from "./view";

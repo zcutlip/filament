@@ -25,6 +25,6 @@ export function updateClipRate(_state: GameState): void {
   notImplemented("updateClipRate");
 }
 
-export function getUpgradeThresholds(_state: GameState): UpgradeThresholds {
-  return notImplemented("getUpgradeThresholds");
+export function updateUpgrades(_state: GameState): UpgradeThresholds {
+  return notImplemented("updateUpgrades");
 }
