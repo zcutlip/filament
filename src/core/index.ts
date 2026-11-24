@@ -18,5 +18,6 @@ export {
   updateClipRate,
   updateUpgrades,
 } from "./systems/manufacturing";
+export { adjustWirePrice, buyWire } from "./systems/wire";
 export type { ViewModel } from "./view";
 export { getViewModel } from "./view";
