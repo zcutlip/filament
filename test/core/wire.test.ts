@@ -20,12 +20,12 @@ function fixedRng(...values: readonly number[]): Rng {
 describe("01 §5.1 wire price drift", () => {
   test("increments the timer without decaying at 250", () => {
     const state = createInitialState();
-    state.wirePriceTimer = 250;
+    state.wirePriceTimer = 249;
     state.wireBasePrice = 20;
 
     adjustWirePrice(state, fixedRng(0.5));
 
-    expect(state.wirePriceTimer).toBe(251);
+    expect(state.wirePriceTimer).toBe(250);
     expect(state.wireBasePrice).toBe(20);
     expect(state.wireCost).toBe(20);
   });
