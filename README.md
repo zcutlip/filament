@@ -4,8 +4,8 @@ Clean-room reimplementation built from the specification in `docs/spec/` and the
 product requirements in `docs/product/requirements.md`.
 
 Status: milestone 1 (core) in progress. The spec 01 §1 formatters, §2 initial
-state and §4 clip production are implemented and tested; the remaining core
-modules are typed stubs and the command-line harness is not implemented.
+state, §4 clip production and §5 wire are implemented and tested; the remaining
+core modules are typed stubs and the command-line harness is not implemented.
 
 ## Requirements
 

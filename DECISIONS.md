@@ -13,6 +13,8 @@
   One entry point per ARCH-1–7 concern, with `src/core/index.ts` as the package-facing surface; section rules live in `systems/`, not in the state or entry-point modules.
 - 2026-11-22 — `src/core/systems/manufacturing.ts` owns spec 01 §4 as `clipClick`, `makeClipper`, `makeMegaClipper`, `updateClipRate`, `updateUpgrades`.
   `updateUpgrades` is 01 §4.5's named function; it returns the threshold pair instead of writing display state, because 01 §2 lists no `nfup`/`ndup` fields and the core has no display. `updateClipRate` names 01 §4.4's tick step, which the spec leaves unnamed.
+- 2026-11-24 — `src/core/systems/wire.ts` owns 01 §5.1–5.2 as `adjustWirePrice(state, rng)` and `buyWire(state)`.
+  `adjustWirePrice` takes the injected `Rng` so price drift stays deterministic (ARCH-3); 01 §5.3's WireBuyer toggle stays with commands/view because it is a button state flip.
 - 2026-11-17 — `GameState` starts with the 01 §2 inventory and grows with each section batch.
   TDD scaffolds a batch's modules first, so 03–07 fields not listed in that inventory are added when their tests are planned.
 - 2026-11-17 — Core `tsconfig` has no DOM lib.
@@ -26,4 +28,4 @@
 
 UI framework, server framework, and container base are deferred until the milestone that needs them.
 
-_Source: stack planning discussion and milestone 1 scaffold request, 2026-11-17; batch 01 §1 formatter tests and implementation, 2026-11-17; batch 01 §2 state tests and implementation, 2026-11-17; batch 01 §4 manufacturing scaffold, 2026-11-22._
+_Source: stack planning discussion and milestone 1 scaffold request, 2026-11-17; batch 01 §1 formatter tests and implementation, 2026-11-17; batch 01 §2 state tests and implementation, 2026-11-17; batch 01 §4 manufacturing scaffold, 2026-11-22; batch 01 §5 wire tests and implementation, 2026-11-24._
