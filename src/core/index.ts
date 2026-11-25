@@ -10,6 +10,13 @@ export { deserializeSave, serializeSave } from "./save";
 export type { GameState } from "./state";
 export { createInitialState } from "./state";
 export { step } from "./step";
+export {
+  addMem,
+  addProc,
+  calculateCreativity,
+  calculateOperations,
+  calculateTrust,
+} from "./systems/computation";
 export type { UpgradeThresholds } from "./systems/manufacturing";
 export {
   clipClick,
